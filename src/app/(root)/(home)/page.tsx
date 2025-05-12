@@ -20,7 +20,7 @@ export default function Home() {
     api.interviews.getMyInterviews
   ); /* current cadidate */
   const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState<"sta rt" | "join">();
+  const [modalType, setModalType] = useState<"start" | "join">();
 
   const handleQuickAction = (title: string) => {
     switch (title) {
