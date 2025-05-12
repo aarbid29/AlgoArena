@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+```markdown
+## AlgoArena
 
-## Getting Started
+**AlgoArena** is a web application that provides a robust platform for conducting mock interviews focused on **DSA (Data Structures & Algorithms)** questions frequently asked by top tech companies. It’s designed to simulate real-world technical interviews with features that make the experience seamless and interactive.
 
-First, run the development server:
+### 🛠 Tech Stack & Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **📹 Video Interviewing with GetStream.io**  
+  Integrated video calling powered by [GetStream.io](https://getstream.io) enabling:
+
+  - Real-time video conferencing
+  - Screen sharing
+  - Screen recording
+
+- **⚙️ Backend as a Service with Convex**
+
+  - Serverless backend with real-time data support
+  - Manages interview sessions, question banks, and user interactions
+
+- **🔐 Authentication with Clerk**
+
+  - Secure and scalable auth system
+  - Integrated with Convex using **JWT Web Tokens** for authorized API calls
+
+- **📦 User Data Management**
+  - Stores user profiles, interview history, and performance metrics securely via Convex
+
+### Use Case
+
+AlgoArena is ideal for:
+
+- Candidates preparing for technical interviews
+- Peer-to-peer mock interview sessions
+- Recruiters conducting coding interviews in a collaborative environment
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
