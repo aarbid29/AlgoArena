@@ -77,22 +77,10 @@ The platform integrates three external services — Convex for the reactive data
 ---
 
 ## Architecture
+<img width="1024" height="559" alt="IMG_4242" src="https://github.com/user-attachments/assets/c71509bb-b540-4f09-8db2-c0a8f2d469fb" />
 
-```
-Browser
-  |
-  |-- Clerk (auth, JWT)
-  |
-  |-- Convex (real-time DB + serverless API)
-  |     |
-  |     |-- HTTP endpoint: /clerk-webhook
-  |           Clerk fires user.created -> Svix verifies -> syncUser mutation
-  |
-  |-- GetStream.io (video calls, recordings)
-        |
-        |-- Stream token minted by Next.js Server Action
-              using Clerk user ID
-```
+
+
 
 Convex is the source of truth for all interview state. GetStream is the source of truth for all call and recording state. The `streamCallId` field on every interview record is the single reference that ties the two systems together.
 
