@@ -131,7 +131,7 @@ Three tables. No ORM — Convex uses its own typed schema definition.
 
 ```typescript
 users: {
-  clerkId:  string    // indexed — used as FK everywhere
+  clerkId:  string    
   name:     string
   email:    string
   image:    string?
@@ -141,19 +141,19 @@ users: {
 interviews: {
   title:          string
   description:    string?
-  startTime:      number   // Unix timestamp
-  endTime:        number?  // set on completion
+  startTime:      number   
+  endTime:        number?  
   status:         string   // "upcoming" | "completed" | "succeeded" | "failed"
-  streamCallId:   string   // indexed — links to GetStream call
-  candidateId:    string   // Clerk user ID, indexed
+  streamCallId:   string   
+  candidateId:    string   // Clerk user ID
   interviewerIds: string[] // array of Clerk user IDs
 }
 
 comments: {
-  interviewId:   Id<"interviews">  // indexed
-  interviewerId: string            // Clerk user ID of commenter
+  interviewId:   Id<"interviews">  
+  interviewerId: string            
   content:       string
-  rating:        number            // 1–5
+  rating:        number           
 }
 ```
 
@@ -177,49 +177,7 @@ comments: {
 
 ---
 
-## Project Structure
 
-```
-algoarena/
-├── convex/
-│   ├── schema.ts          # Database table and index definitions
-│   ├── users.ts           # User queries and mutations
-│   ├── interviews.ts      # Interview CRUD
-│   ├── comments.ts        # Comment CRUD
-│   ├── http.ts            # Clerk webhook HTTP handler
-│   └── auth.config.ts     # Clerk JWT domain configuration
-├── src/
-│   ├── app/
-│   │   ├── (root)/
-│   │   │   ├── (home)/page.tsx         # Role-split home page
-│   │   │   ├── meeting/[id]/page.tsx   # Live meeting room
-│   │   │   ├── schedule/               # Interview scheduling (interviewers only)
-│   │   │   └── recordings/             # Past call recordings
-│   │   ├── (admin)/
-│   │   │   └── dashboard/page.tsx      # Interviewer review dashboard
-│   │   └── layout.tsx                  # Root layout with providers
-│   ├── components/
-│   │   ├── MeetingRoom.tsx             # Video + code editor layout
-│   │   ├── MeetingSetup.tsx            # Pre-join camera/mic check
-│   │   ├── CodeEditor.tsx              # Monaco editor with DSA questions
-│   │   ├── EndCallButton.tsx           # Owner-only call termination
-│   │   ├── CommentDialog.tsx           # Rating and feedback modal
-│   │   ├── MeetingCard.tsx             # Interview card with status badge
-│   │   ├── providers/
-│   │   │   ├── ConvexClerkProvider.tsx # Wraps app with auth + DB providers
-│   │   │   └── StreamClientProvider.tsx # Initializes Stream video client
-│   │   └── ...
-│   ├── hooks/
-│   │   ├── useUserRole.ts              # Derives interviewer/candidate from Convex
-│   │   ├── useGetCallById.ts           # Fetches single Stream call
-│   │   ├── useGetCalls.ts              # Fetches all calls for current user
-│   │   └── useMeetingActions.ts        # Create and join meeting helpers
-│   ├── actions/
-│   │   └── stream.actions.ts           # Server action: mint Stream token
-│   ├── constants/index.ts              # DSA questions, time slots, categories
-│   ├── lib/utils.ts                    # groupInterviews, getMeetingStatus, etc.
-│   └── middleware.ts                   # Clerk middleware — route protection
-```
 
 ---
 
@@ -246,8 +204,8 @@ NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
 # GetStream.io
-NEXT_PUBLIC_STREAM_API_KEY=your_api_key
-STREAM_SECRET_KEY=your_secret_key
+NEXT_PUBLIC_STREAM_API_KEY= api_key
+STREAM_SECRET_KEY=  secret_key
 ```
 
 ### Installation
