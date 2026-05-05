@@ -15,12 +15,12 @@
 <br/>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Next.js%2014-black?style=flat-square&logo=next.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Convex-EE4B2B?style=flat-square&logo=convex&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Clerk-6C47FF?style=flat-square&logo=clerk&logoColor=white"/>
-  <img src="https://img.shields.io/badge/GetStream.io-005FFF?style=flat-square&logo=stream&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white"/>
+  <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js%2014-black?style=flat-square&logo=next.js&logoColor=white"/></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/></a>
+  <a href="https://www.convex.dev"><img src="https://img.shields.io/badge/Convex-EE4B2B?style=flat-square&logo=convex&logoColor=white"/></a>
+  <a href="https://clerk.com"><img src="https://img.shields.io/badge/Clerk-6C47FF?style=flat-square&logo=clerk&logoColor=white"/></a>
+  <a href="https://getstream.io"><img src="https://img.shields.io/badge/GetStream.io-005FFF?style=flat-square&logo=stream&logoColor=white"/></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white"/></a>
 </p>
 
 </div>
