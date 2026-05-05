@@ -29,9 +29,9 @@
 
 ## Overview
 
-AlgoArena is a full-stack interview platform designed for peer-to-peer and recruiter-led technical interviews. Interviewers schedule sessions, conduct live video calls with screen sharing and recording, collaborate on DSA problems in a shared code editor, and leave structured feedback with ratings. Candidates see their scheduled interviews in real time and can join when sessions go live.
+AlgoArena is a full-stack interview platform designed for peer-to-peer and recruiter led technical interviews. Interviewers schedule sessions, conduct live video calls with screen sharing and recording, collaborate on DSA problems in a shared code editor, and leave structured feedback with ratings. Candidates see their scheduled interviews in real time and can join when sessions go live.
 
-The platform integrates three external services — Convex for the reactive database and serverless backend, Clerk for authentication, and GetStream.io for video infrastructure — with a single string (`streamCallId`) acting as the bridge between the data layer and the video layer.
+The platform integrates three external services : Convex for the reactive database and serverless backend, Clerk for authentication, and GetStream.io for video infrastructure  with a single string (`streamCallId`) acting as the bridge between the data layer and the video layer.
 
 ---
 
@@ -58,21 +58,21 @@ The platform integrates three external services — Convex for the reactive data
 ## Tech Stack
 
 ### Frontend
-- **Next.js 14** — App Router, client components, server actions
-- **TypeScript** — full type safety across frontend and backend
-- **Tailwind CSS + shadcn/ui** — component library and utility styling
-- **Monaco Editor** — embedded VS Code editor for live coding
+- **Next.js 14** :App Router, client components, server actions
+- **TypeScript** :full type safety across frontend and backend
+- **Tailwind CSS + shadcn/ui** : component library and utility styling
+- **Monaco Editor** : embedded VS Code editor for live coding
 
 ### Backend
-- **Convex** — serverless backend-as-a-service: typed queries, mutations, real-time reactivity, and HTTP webhook handler
-- **GetStream.io** — video calling, screen sharing, recording, and call state management
+- **Convex** : serverless backend-as-a-service: typed queries, mutations, real-time reactivity, and HTTP webhook handler
+- **GetStream.io** : video calling, screen sharing, recording, and call state management
 
 ### Auth
-- **Clerk** — user authentication, JWT generation, and webhook-based user sync
+- **Clerk** : user authentication, JWT generation, and webhook-based user sync
 
 ### Infrastructure
-- **Vercel** — deployment
-- **Svix** — webhook signature verification for Clerk events
+- **Vercel** : deployment
+- **Svix** : webhook signature verification for Clerk events
 
 ---
 
@@ -99,7 +99,7 @@ When an interviewer submits the schedule form, two things happen atomically from
 1. A call is created on GetStream's servers via `client.call("default", uuid).getOrCreate()` with the scheduled start time.
 2. The `createInterview` Convex mutation writes a record to the `interviews` table with the same UUID as the `streamCallId`.
 
-From that moment, any client subscribed to `getMyInterviews` (filtered by `candidateId`) receives the new interview automatically — Convex pushes the update in real time with no polling.
+From that moment, any client subscribed to `getMyInterviews` (filtered by `candidateId`) receives the new interview automatically ,  Convex pushes the update in real time with no polling.
 
 ### Joining and Running a Meeting
 
@@ -109,13 +109,13 @@ The code editor holds state locally per participant. It is not synced between pa
 
 ### Ending a Meeting and Post-Interview Review
 
-Only the user who created the call (the meeting owner) sees the End Meeting button. Clicking it calls `call.endCall()` on GetStream to terminate the session for all participants, then runs `updateInterviewStatus` on Convex to set `status: "completed"` and record the `endTime`. The dashboard then groups interviews by status — upcoming, completed, succeeded, failed — and allows interviewers to pass or fail candidates and leave written comments with star ratings.
+Only the user who created the call (the meeting owner) sees the End Meeting button. Clicking it calls `call.endCall()` on GetStream to terminate the session for all participants, then runs `updateInterviewStatus` on Convex to set `status: "completed"` and record the `endTime`. The dashboard then groups interviews by status i.e upcoming, completed, succeeded, failed — and allows interviewers to pass or fail candidates and leave written comments with star ratings.
 
 ---
 
 ## Database Schema (Convex)
 
-Three tables. No ORM — Convex uses its own typed schema definition.
+Three tables. No ORM as Convex uses its own typed schema definition.
 
 ```typescript
 users: {
@@ -220,13 +220,13 @@ In the Clerk dashboard, create a webhook pointing to:
 https://your-convex-deployment.convex.site/clerk-webhook
 ```
 
-Enable the `user.created` event. Copy the signing secret into `CLERK_WEBHOOK_SECRET` in your Convex environment variables (not `.env.local` — Convex reads its own env).
+Enable the `user.created` event. Copy the signing secret into `CLERK_WEBHOOK_SECRET` in your Convex environment variables (not `.env.local` , Convex reads its own env).
 
 ---
 
 ## Role Management
 
-All users default to `"candidate"` on signup. To grant interviewer access, update the `role` field directly in the Convex dashboard. There is no self-serve role change in the UI by design — interviewers are provisioned manually.
+All users default to `"candidate"` on signup. To grant interviewer access, update the `role` field directly in the Convex dashboard. There is no self serve role change in the UI by design , interviewers are provisioned manually.
 
 ---
 
@@ -238,7 +238,7 @@ The code editor ships with three built-in DSA problems:
 - House Robber
 - Maximum Depth of Binary Tree
 
-Each question includes a problem description, examples, constraints, and starter code in JavaScript, Python, and Java. Code is held in local React state only — it is not persisted or synced between participants.
+Each question includes a problem description, examples, constraints, and starter code in JavaScript, Python, and Java. Code is held in local React state only , it is not persisted or synced between participants.
 
 ---
 
